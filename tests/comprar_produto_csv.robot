@@ -10,6 +10,7 @@
 *** Settings ***
 Library           AppiumLibrary
 Library           DataDriver    file=../fixtures/csv/massa_produtos.csv    dialect=excel    delimiter=,
+Library           Screenshot    
 Test Template     Cenario Comprar Mochila
 Test Teardown     Close Application
 
@@ -21,19 +22,19 @@ Resource    ../screens/cart_screen_csv.resource
 ${quantidade_esperada}    1 
 
 *** Test Cases ***
-TC${INDEX}    ${titulo_produto}    ${preco_produto}
+TC ${INDEX}    ${id}    ${titulo_produto}    ${preco_produto}
 
 *** Keywords ***
 Cenario Comprar Mochila
-    [Arguments]    ${titulo_produto}    ${preco_produto}    
+    [Arguments]    ${id}    ${titulo_produto}    ${preco_produto}    
     Dado que abri o app
-    Entao exibe a tela inicial com o texto Products
+    Entao exibe a tela inicial com o texto Products    ${id}
     Quando seleciono o produto     ${titulo_produto}
     Entao confirma    ${titulo_produto}    ${preco_produto}  
-    Quando adiciono o produto ao carrinho
+    Quando adiciono o produto ao carrinho    ${id}
     Entao o icone do carrinho exibe a    ${quantidade_esperada} 
     Quando clico no carrinho de compras
-    Entao exibe a pagina do carrinho com    ${titulo_produto}    ${preco_produto}    ${quantidade_esperada}    
+    Entao exibe a pagina do carrinho com    ${id}    ${titulo_produto}    ${preco_produto}    ${quantidade_esperada}    
 
 
 *** Keywords ***

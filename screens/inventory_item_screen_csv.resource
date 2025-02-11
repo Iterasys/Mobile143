@@ -18,8 +18,10 @@ Entao confirma
 
 
 Quando adiciono o produto ao carrinho
+    [Arguments]    ${id}
     ${botao_adicionar_carrinho} =    Set Variable     accessibility_id=Tap to add product to cart
     Click Element    ${botao_adicionar_carrinho}
+    Capture Page Screenshot    filename=output/TC${id} - Passo 2 - Produto Selecionado.png 
 
 Entao o icone do carrinho exibe a 
     [Arguments]    ${quantidade_esperada}

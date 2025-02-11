@@ -3,7 +3,7 @@ Library    AppiumLibrary
 
 *** Keywords ***
 Entao exibe a pagina do carrinho com
-    [Arguments]    ${titulo_produto_esperado}    ${preco_produto_esperado}    ${quantidade_esperada}
+    [Arguments]    ${id}    ${titulo_produto_esperado}    ${preco_produto_esperado}    ${quantidade_esperada}
     Wait Until Page Contains Element    id=com.saucelabs.mydemoapp.android:id/productTV
     ${titulo_pagina_carrinho} =    Set Variable     id=com.saucelabs.mydemoapp.android:id/productTV
     ${titulo_pagina_carrinho_atual}    Get Text    ${titulo_pagina_carrinho}
@@ -25,4 +25,4 @@ Entao exibe a pagina do carrinho com
     ${preco_total_atual}   Get Text    ${preco_total}
     Should Be Equal     ${preco_total_atual}    ${preco_produto_esperado}  
  
-
+    Capture Page Screenshot    filename=output/TC${id} - Passo 3 - Produto no Carrinho.png 

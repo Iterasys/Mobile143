@@ -21,11 +21,13 @@ Dado que abri o app
     Set Appium Timeout    60    # Implicitly Wait - Esperar até 10s todos os elementos
 
 Entao exibe a tela inicial com o texto Products
+    [Arguments]    ${id}
     # Inventory / Catalog
     ${titulo_pagina} =    Set Variable     id=com.saucelabs.mydemoapp.android:id/productTV
     Wait Until Element Is Visible    ${titulo_pagina}    20000ms
     ${titulo_pagina_atual}    Get Text    ${titulo_pagina}
     Should Be Equal    ${titulo_pagina_atual}    Products
+    Capture Page Screenshot    filename=output/TC${id} - Passo 1 - Tela Inicial.png 
 
 Quando seleciono o produto
     [Arguments]        ${titulo_produto}
