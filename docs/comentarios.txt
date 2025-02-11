@@ -1,0 +1,39 @@
+Testes Mobile
+- Costumam ter uma produtividade menor que a automação Web 
+  (30 a 50% a mais de tempo)
+- Essa diferença ocorre pelo setup, gestao do ambiente, inspeção do elemento e
+  tempo de execução
+
+Tipos de Apps
+- Nativo: criado especificamente para Android ou iOS
+- Hibrido: um projeto que gera um app para Android ou iOS
+- Web App: site configurado como um app
+
+Pré-requisitos:
+- Vários, conforme o roteiro passado
+
+Hardware
+- < 16Gb de RAM dificulta trabalhar com esse tipo de Testes
+- Quanto mais memória e potencia na máquina, melhor
+- Se tiver um Mac, pode testar em Android e iOS,
+  caso contrário, se for X86, só Android
+
+Se aplica a testar:
+- em aparelho fisico conectado ao computador
+- em aparelho fisico remoto numa device farm
+- em emulador conectado ao computador
+- em emulador conectado numa device farm
+
+Roteiro Inicial
+- Instalar o app alvo no emulador
+- Instalar o Apk Info no emulador
+- Usar o ApK Info para descobrir:
+--- appPackage: com.saucelabs.mydemoapp.android
+--- appActivity: com.saucelabs.mydemoapp.android.view.activities.SplashActivity
+- Usar o Appium Inspector para inspecionar o app alvo
+- Exportar o código para iniciar a automação
+
+Fizemos um script simples que passa por 3 telas
+--> Adaptação para DDT
+- uma lista de dados --> Test Case
+- um arquivo csv --> DataDriver Library
